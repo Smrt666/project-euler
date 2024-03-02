@@ -1,0 +1,35 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile rust file",
+            "type": "shell",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/target"
+            },
+            "command": "rustc ${file}"
+        },
+        {
+            "label": "Run rust file",
+            "type": "shell",
+            "dependsOn": [
+                "Compile rust file"
+            ],
+            "dependsOrder": "sequence",
+            "command": "./${fileBasenameNoExtension}.exe",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/target"
+            },
+            "group": {
+                "kind": "build",
+                 "isDefault": true
+           }
+        }
+    ]
+}
