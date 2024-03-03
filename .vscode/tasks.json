@@ -10,9 +10,12 @@
                 "$rustc"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/target"
+                "cwd": "${workspaceFolder}"
             },
-            "command": "rustc ${file}"
+            "command": "cargo build --bin ${fileBasenameNoExtension}",
+            "presentation": {
+                "clear": true
+            }
         },
         {
             "label": "Run rust file",
@@ -21,15 +24,18 @@
                 "Compile rust file"
             ],
             "dependsOrder": "sequence",
-            "command": "./${fileBasenameNoExtension}.exe",
+            "command": "cargo run --bin ${fileBasenameNoExtension}",
             "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceFolder}/target"
+                "cwd": "${workspaceFolder}/"
             },
             "group": {
                 "kind": "build",
                  "isDefault": true
-           }
+           },
+           "presentation": {
+            "reveal": "always",
+          }
         }
     ]
 }

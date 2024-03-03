@@ -2,8 +2,8 @@ use std::fs;
 use std::env;
 
 fn main() {
-    // println!("{}", env::current_dir().unwrap().display());
-    let contents = fs::read_to_string("../inputs/13.txt").expect("File not found");
+    println!("{}", env::current_dir().unwrap().display());
+    let contents = fs::read_to_string("inputs/13.txt").expect("File not found");
     let digits = contents.lines().map(|line| line.trim().chars().map(|c| c.to_digit(10).unwrap()).collect::<Vec<u32>>()).collect::<Vec<Vec<u32>>>();
     println!("{:?}", digits);
     let mut result: Vec<u32> = vec![];
