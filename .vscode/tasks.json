@@ -24,7 +24,7 @@
                 "Compile rust file"
             ],
             "dependsOrder": "sequence",
-            "command": "('\nExcecution of ${fileBasenameNoExtension}.exe took ' + (Measure-Command { cargo run --bin ${fileBasenameNoExtension} | Out-Default }).Milliseconds.ToString() + ' ms')",
+            "command": "('\nExcecution of ${fileBasenameNoExtension}.exe took ' + (Measure-Command { cargo run --bin ${fileBasenameNoExtension} | Out-Default }).TotalMilliseconds.ToString() + ' ms')",
             "problemMatcher": [],
             "options": {
                 "cwd": "${workspaceFolder}/"
